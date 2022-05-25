@@ -1,34 +1,27 @@
-# Serilog.Enrichers.CorrelationId
+# Serilog.Enrichers.CustomHeader
 
-Enriches Serilog events with a correlation ID for tracking requests.
+Enriches Serilog events with a custom http header for tracking requests.
 
 [![Build status](https://ci.appveyor.com/api/projects/status/c280e547sj758qfc/branch/master?svg=true)](https://ci.appveyor.com/project/ejcoyle88/serilog-enrichers-correlation-id/branch/master)
 [![Coverage Status](https://coveralls.io/repos/github/ekmsystems/serilog-enrichers-correlation-id/badge.svg?branch=master)](https://coveralls.io/github/ekmsystems/serilog-enrichers-correlation-id?branch=master)
-[![NuGet](http://img.shields.io/nuget/v/Serilog.Enrichers.CorrelationId.svg?style=flat)](https://www.nuget.org/packages/Serilog.Enrichers.CorrelationId/)
+[![NuGet](http://img.shields.io/nuget/v/Serilog.Enrichers.CustomHeader.svg?style=flat)](https://www.nuget.org/packages/Serilog.Enrichers.CustomHeader/)
 
 To use the enricher, first install the NuGet package:
 
 ```powershell
-Install-Package Serilog.Enrichers.CorrelationId
+Install-Package Serilog.Enrichers.CustomHeader
 ```
 
 Then, apply the enricher to your `LoggerConfiguration`:
 
 ```csharp
 Log.Logger = new LoggerConfiguration()
-    .Enrich.WithCorrelationId()
+    .Enrich.WithCustomHeader("x-correlation-id", "CorrelationId")
     // ...other configuration...
     .CreateLogger();
 ```
 
-The `WithCorrelationId()` enricher will add a `CorrelationId` property to produced events.
-
-### Included enrichers
-
-The package includes:
-
- * `WithCorrelationId()` - adds a `CorrelationId` to track logs for the current web request.
- * `WithCorrelationIdHeader(headerKey)` - adds a `CorrelationId` extracted from the current request header (or created if one does not exist).
+The `WithCustomHeader(headerKey, propertyName)` enricher allows you to specify a headerKey to retrieve from the http request and the name of the property to use when logging.
 
 ## Installing into an ASP.NET Core Web Application
 
@@ -51,7 +44,7 @@ namespace MyWebApp
             Log.Logger = new LoggerConfiguration()
                 .MinimumLevel.Debug()
                 .WriteTo.Console(outputTemplate: "[{Timestamp:HH:mm:ss} {CorrelationId} {Level:u3}] {Message:lj}{NewLine}{Exception}")
-                .Enrich.WithCorrelationId()
+                .Enrich.WithCustomHeader("x-correlation-id", "CorrelationId")
                 .CreateLogger();
         }
 
@@ -75,4 +68,4 @@ namespace MyWebApp
 }
 ```
 
-You need to register the `IHttpContextAccessor` singleton so that the enricher has access to the requests `HttpContext` so that it can attach the correlation ID to the request/response.
+You need to register the `IHttpContextAccessor` singleton so that the enricher has access to the requests `HttpContext`.
