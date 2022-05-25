@@ -1,6 +1,6 @@
 using System.Collections.Specialized;
 using NUnit.Framework;
-using Serilog.Enrichers.CorrelationId.Extensions;
+using Serilog.Enrichers.CustomHeader.Extensions;
 
 namespace Serilog.Tests.Extensions
 {

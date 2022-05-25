@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<package>
+  <metadata>
+    <id>Serilog.Enrichers.CustomHeader</id>
+    <version>$version$</version>
+    <title>Serilog.Enrichers.CustomHeader</title>
+    <authors>PaulUpson</authors>
+    <owners>PaulUpson</owners>
+    <projectUrl>https://github.com/PaulUpson/serilog-enrichers-custom-header</projectUrl>
+    <licenseUrl>https://github.com/PaulUpson/serilog-enrichers-custom-header/blob/master/LICENSE</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Enrich logs with a custom http header so you can track logs for specific requests.</description>
+    <releaseNotes></releaseNotes>
+    <copyright></copyright>
+    <tags>serilog enrichers enricher customheader custom http header</tags>
+    <dependencies>
+        <group targetFramework="net452">
+            <dependency id="Serilog" version="2.4.0" />
+        </group>
+        <group targetFramework="netstandard2.0">
+            <dependency id="Microsoft.AspNetCore.Http" version="2.1.1" />
+            <dependency id="Serilog" version="2.7.1" />
+        </group>
+        <group targetFramework="netstandard2.1">
+            <dependency id="Microsoft.AspNetCore.Http" version="2.2.2" />
+            <dependency id="Serilog" version="2.9.0" />
+        </group>
+    </dependencies>  
+  </metadata>
+  <files>
+      <file src="Serilog.Enrichers.CustomHeader\bin\$target$\net452\*.dll" target="lib/net452" />
+      <file src="Serilog.Enrichers.CustomHeader\bin\$target$\netstandard2.0\*.dll" target="lib/netstandard2.0" />
+      <file src="Serilog.Enrichers.CustomHeader\bin\$target$\netstandard2.1\*.dll" target="lib/netstandard2.1" />
+  </files>  
+</package>
