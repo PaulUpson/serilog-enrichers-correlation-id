@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Collections.Specialized;
 
-namespace Serilog.Enrichers.CustomHeader.Extensions
+namespace Serilog.Enrichers.HttpHeader.Extensions
 {
     internal static class NameValueCollectionExtensions
     {

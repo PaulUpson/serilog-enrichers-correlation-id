@@ -4,25 +4,25 @@ using Serilog.Core;
 using Serilog.Events;
 
 #if NETFULL
-using Serilog.Enrichers.CustomHeader.Accessors;
-using Serilog.Enrichers.CustomHeader.Extensions;
+using Serilog.Enrichers.HttpHeader.Accessors;
+using Serilog.Enrichers.HttpHeader.Extensions;
 #else
 using Microsoft.AspNetCore.Http;
 #endif
 
 namespace Serilog.Enrichers
 {
-    public class CustomHeaderEnricher : ILogEventEnricher
+    public class HttpHeaderEnricher : ILogEventEnricher
     {
         private readonly string _propertyName;
         private readonly string _headerKey;
         private readonly IHttpContextAccessor _contextAccessor;
 
-        public CustomHeaderEnricher(string headerKey, string propertyName) : this(headerKey, propertyName, new HttpContextAccessor())
+        public HttpHeaderEnricher(string headerKey, string propertyName) : this(headerKey, propertyName, new HttpContextAccessor())
         {
         }
 
-        internal CustomHeaderEnricher(string headerKey, string propertyName, IHttpContextAccessor contextAccessor)
+        internal HttpHeaderEnricher(string headerKey, string propertyName, IHttpContextAccessor contextAccessor)
         {
             _headerKey = headerKey;
             _propertyName = propertyName;

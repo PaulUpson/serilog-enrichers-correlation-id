@@ -14,6 +14,6 @@
         <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.2.2" />
     </ItemGroup>
     <ItemGroup>
-      <ProjectReference Include="..\Serilog.Enrichers.CustomHeader\Serilog.Enrichers.CustomHeader.csproj" />
+      <ProjectReference Include="..\Serilog.Enrichers.HttpHeader\Serilog.Enrichers.HttpHeader.csproj" />
     </ItemGroup>
 </Project>

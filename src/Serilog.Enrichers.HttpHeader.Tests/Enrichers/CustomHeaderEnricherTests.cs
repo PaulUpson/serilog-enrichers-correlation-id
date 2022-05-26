@@ -9,7 +9,7 @@ namespace Serilog.Tests.Enrichers
 {
     [TestFixture]
     [Parallelizable]
-    public class CustomHeaderEnricherTests
+    public class HttpHeaderEnricherTests
     {
         private const string HeaderKey = "x-correlation-id";
         private const string PropertyName = "CorrelationId";
@@ -18,11 +18,11 @@ namespace Serilog.Tests.Enrichers
         public void SetUp()
         {
             _httpContextAccessor = A.Fake<IHttpContextAccessor>();
-            _enricher = new CustomHeaderEnricher(HeaderKey, PropertyName, _httpContextAccessor);
+            _enricher = new HttpHeaderEnricher(HeaderKey, PropertyName, _httpContextAccessor);
         }
 
         private IHttpContextAccessor _httpContextAccessor;
-        private CustomHeaderEnricher _enricher;
+        private HttpHeaderEnricher _enricher;
 
         [Test]
         public void When_CorrelationIdNotInHeader_Should_CreateCorrelationIdProperty()

@@ -1,12 +1,28 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <AssemblyName>Serilog.Enrichers.CustomHeader</AssemblyName>
+        <AssemblyName>Serilog.Enrichers.HttpHeader</AssemblyName>
+        <Version>1.0.0</Version>
         <RootNamespace>Serilog</RootNamespace>
         <TargetFrameworks>net452;netstandard2.0;netstandard2.1</TargetFrameworks>
-        <LangVersion>8.0</LangVersion>
         <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+        <Title>Serilog.Enrichers.HttpHeader</Title>
+        <Description>Enrich logs with an http header so you can track logs for specific requests.</Description>
+        <Summary>Enrich logs with an http header so you can track logs for specific requests.</Summary>
+        <PackageId>Serilog.Enrichers.HttpHeader</PackageId>        
+        <PackageTags>serilog;http;enricher</PackageTags>
+        <PackageIcon>serilog-enricher-nuget.png</PackageIcon>        
+        <PackageProjectUrl>https://github.com/PaulUpson/serilog-enrichers-http-header</PackageProjectUrl>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <RequireLicenseAcceptance>false</RequireLicenseAcceptance>
+        <RepositoryUrl>https://github.com/PaulUpson/serilog-enrichers-http-header</RepositoryUrl>
+        <RepositoryType>git</RepositoryType>
+        <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
     </PropertyGroup>
+
+    <ItemGroup>
+        <None Include="serilog-enricher-nuget.png" Pack="true" PackagePath="\" />
+    </ItemGroup>
 
     <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard2.0'">
         <DefineConstants>NETCORE;NETSTANDARD;NETSTANDARD2_0</DefineConstants>
