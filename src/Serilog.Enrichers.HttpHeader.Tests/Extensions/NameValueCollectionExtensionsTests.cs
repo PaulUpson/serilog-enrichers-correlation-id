@@ -1,6 +1,6 @@
 using System.Collections.Specialized;
 using NUnit.Framework;
-using Serilog.Enrichers.CustomHeader.Extensions;
+using Serilog.Enrichers.HttpHeader.Extensions;
 
 namespace Serilog.Tests.Extensions
 {

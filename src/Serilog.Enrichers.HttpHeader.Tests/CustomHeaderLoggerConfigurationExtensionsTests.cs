@@ -7,13 +7,13 @@ namespace Serilog.Tests
 {
     [TestFixture]
     [Parallelizable]
-    public class CustomHeaderLoggerConfigurationExtensionsTests
+    public class HttpHeaderLoggerConfigurationExtensionsTests
     {
         [Test]
         public void WithCorrelationIdHeader_ThenLoggerIsCalled_ShouldNotThrowException()
         {
             var logger = new LoggerConfiguration()
-                .Enrich.WithCustomHeader("x-correlation-id", "CorrelationId")
+                .Enrich.WithHttpHeader("x-correlation-id", "CorrelationId")
                 .WriteTo.Sink(new DelegateSink.DelegatingSink(e => { }))
                 .CreateLogger();
 
@@ -25,7 +25,7 @@ namespace Serilog.Tests
         {
             LoggerEnrichmentConfiguration configuration = null;
             // ReSharper disable once ExpressionIsAlwaysNull
-            Assert.Throws<ArgumentNullException>(() => configuration.WithCustomHeader("x-correlation-id", "CorrelationId"));
+            Assert.Throws<ArgumentNullException>(() => configuration.WithHttpHeader("x-correlation-id", "CorrelationId"));
         }
     }
 }

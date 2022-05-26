@@ -1,7 +1,7 @@
 ﻿#if NETFULL
 using System.Web;
 
-namespace Serilog.Enrichers.CustomHeader.Accessors
+namespace Serilog.Enrichers.HttpHeader.Accessors
 {
     public interface IHttpContextAccessor
     {

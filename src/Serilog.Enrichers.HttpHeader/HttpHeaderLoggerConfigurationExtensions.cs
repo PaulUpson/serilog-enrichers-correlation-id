@@ -4,14 +4,14 @@ using Serilog.Enrichers;
 
 namespace Serilog
 {
-    public static class CustomHeaderLoggerConfigurationExtensions
+    public static class HttpHeaderLoggerConfigurationExtensions
     {
-        public static LoggerConfiguration WithCustomHeader(
+        public static LoggerConfiguration WithHttpHeader(
             this LoggerEnrichmentConfiguration enrichmentConfiguration,
             string headerKey, string propertyName)
         {
             if (enrichmentConfiguration == null) throw new ArgumentNullException(nameof(enrichmentConfiguration));
-            return enrichmentConfiguration.With(new CustomHeaderEnricher(headerKey, propertyName));
+            return enrichmentConfiguration.With(new HttpHeaderEnricher(headerKey, propertyName));
         }
     }
 }
